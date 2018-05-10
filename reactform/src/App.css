@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top: 3rem;
+  flex-direction:column;
+  
+ 
+}
+.header{
+  text-align: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.FormStyl {
+  border-radius: 10px;
+  border-color:#7FDBFF;
+  border: 2px solid #7FDBFF;
+  background-color:  white;
+  padding-bottom:1.5rem;
+}
