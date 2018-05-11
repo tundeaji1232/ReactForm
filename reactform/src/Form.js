@@ -49,7 +49,7 @@ export default class Form extends Component {
           isError = true;
           errors.emailError = "Requires valid email";
         }
-        if (this.state.phone.length >= 8) {
+        if (this.state.phone.length <= 8) {
             isError = true;
             errors.phoneError = "Requires valid phone minimum 8 digits";
           }
@@ -66,16 +66,10 @@ export default class Form extends Component {
       handleSubmit = (e) => {
         e.preventDefault();
 
-        const user = {
-     name: this.state.name,
-     email : this.state.email,
-     password: this.state.password,
-     isSubcribe: this.state.isSubscribe
-        }
     
      
 
-        const err = this.validate();
+    const err = this.validate();
     if (!err) {
       // clear form
       this.setState({
@@ -92,15 +86,37 @@ export default class Form extends Component {
  
     }
 
-    axios.post('https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test', { user })
+    const user = {
+        name: this.state.name,
+        email : this.state.email,
+        password: this.state.password,
+        isSubcribe: this.state.isSubscribe
+           }
+
+    // axios.post('https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test', { user })
    
-    .then(res => {
-        console.log(res);
-    })
-    .catch(error => {
-        console.log(error)
-    });
-      }
+    // .then(res => {
+    //     console.log(res);
+    // })
+    // .catch(error => {
+    //     console.log(error)
+    // });
+
+    const url='https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test';
+    const param={
+        headers: {
+            "Content-Type":"application/json; charset=UTF-8"
+        },
+        body:user,
+        method: "POST"
+    };
+    fetch(url,param)
+    .then(data=>{return data.json()})
+    .then(res=>{console.log(res)})
+    .catch(error=>console.log(error))
+       }
+
+
     
       render() {
         return (
