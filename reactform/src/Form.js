@@ -93,28 +93,28 @@ export default class Form extends Component {
         isSubcribe: this.state.isSubscribe
            }
 
-    // axios.post('https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test', { user })
+    axios.post('https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test', { user })
    
-    // .then(res => {
-    //     console.log(res);
-    // })
-    // .catch(error => {
-    //     console.log(error)
-    // });
+    .then(res => {
+        console.log(res.data);
+    })
+    .catch(error => {
+        console.log(error)
+    });
 
-    const url='https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test';
-    const param={
-        headers: {
-            "Content-Type":"application/json; charset=UTF-8"
-        },
-        body:user,
-        method: "POST"
-    };
-    fetch(url,param)
-    .then(data=>{return data.json()})
-    .then(res=>{console.log(res)})
-    .catch(error=>console.log(error))
-       }
+    // const url='https://cors-anywhere.herokuapp.com/https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test';
+    // const param={
+    //     headers: {
+    //         "Content-Type":"application/json; charset=UTF-8"
+    //     },
+    //     body:JSON.stringify(user),
+    //     method: "POST"
+    // };
+    // fetch(url,param)
+    // .then(data=>{return data.json()})
+    // .then(res=>{console.log(res.data)})
+    // .catch(error=>console.log(error))
+        }
 
 
     
