@@ -89,15 +89,11 @@ export default class Form extends Component {
         emailError: "",
         passwordError: ""
       });
-      this.props.onChange({
-        name: "",
-        phone: "",
-        email: "",
-        password: ""
-      });
+ 
     }
 
     axios.post('https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test', { user })
+   
     .then(res => {
         console.log(res);
     })
