@@ -49,9 +49,9 @@ export default class Form extends Component {
           isError = true;
           errors.emailError = "Requires valid email";
         }
-        if (this.state.phone.length !== 11) {
+        if (this.state.phone.length >= 8) {
             isError = true;
-            errors.phoneError = "Requires valid phone 11 digits";
+            errors.phoneError = "Requires valid phone minimum 8 digits";
           }
     
     
@@ -109,7 +109,7 @@ export default class Form extends Component {
 
             <TextField
             hintText="Name"
-            floatingLabelText="Name"
+         
             value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
             floatingLabelFixed
@@ -119,7 +119,7 @@ export default class Form extends Component {
 
             <TextField
             hintText="Email"
-            floatingLabelText="Email"
+            
             value={this.state.email}
             type="email"
             onChange={e => this.setState({ email: e.target.value })}
@@ -130,7 +130,7 @@ export default class Form extends Component {
            
             <TextField
             hintText="Password"
-            floatingLabelText="Password"
+          
             value={this.state.password}
             type="password"
             onChange={e => this.setState({ password: e.target.value })}
@@ -141,7 +141,7 @@ export default class Form extends Component {
             
              <TextField
             hintText="phone"
-            floatingLabelText="phone"
+            
             value={this.state.phone}
             type="number"
             onChange={e => this.setState({ phone: e.target.value })}
